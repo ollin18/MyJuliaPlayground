@@ -1,0 +1,11 @@
+OhMyREPL
+LightGraphs
+RCall
+GraphPlot
+Colors
+Compose
+Clustering
+Plots
+PyPlot
+Cairo
+Fontconfig
