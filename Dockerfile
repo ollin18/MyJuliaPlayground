@@ -1,4 +1,4 @@
-FROM julia:0.7.0-stretch
+FROM julia:1.0.0-stretch
 MAINTAINER Ollin Demian Langle Chimal <Ollin.Langle@uvm.edu>
 ENV REFRESHED_AT 2018-08-23
 
