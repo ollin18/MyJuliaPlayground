@@ -9,3 +9,11 @@ Plots
 PyPlot
 Cairo
 Fontconfig
+DifferentialEquations
+DataFrames
+DataArrays
+GLM
+PyCall
+Distributions
+TimeSeries
+Plotly
