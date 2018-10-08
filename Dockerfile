@@ -16,7 +16,7 @@ RUN Rscript packages.R
 RUN pip install matplotlib luigi
 
 ADD packages.jl packages.jl
-RUN sh packages.jl
+RUN julia packages.jl
 
 RUN echo 'es_MX.UTF-8 UTF-8' >> /etc/locale.gen
 RUN echo 'export es_MX.UTF-8 UTF-8' >> /.bashrc
