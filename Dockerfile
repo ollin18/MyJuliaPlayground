@@ -10,7 +10,6 @@ RUN apt-get install -y unzip curl openssl libssl-dev libcurl4-openssl-dev git py
 RUN apt-get install --force-yes -y r-base-core r-recommended r-base r-base-dev
 
 ADD packages.R packages.R
-ADD requirements.txt requirements.txt
 
 RUN Rscript packages.R
 RUN pip install matplotlib luigi
