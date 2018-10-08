@@ -1,6 +1,6 @@
 FROM julia:1.0.0-stretch
 MAINTAINER Ollin Demian Langle Chimal <Ollin.Langle@uvm.edu>
-ENV REFRESHED_AT 2018-08-23
+ENV REFRESHED_AT 2018-10-08
 
 RUN apt-get update
 RUN apt-get install -y gnupg python-docutils
@@ -11,11 +11,12 @@ RUN apt-get install --force-yes -y r-base-core r-recommended r-base r-base-dev
 
 ADD packages.R packages.R
 ADD requirements.txt requirements.txt
-ADD packages.sh packages.sh
 
 RUN Rscript packages.R
 RUN pip install matplotlib luigi
-RUN sh packages.sh
+
+ADD packages.jl packages.jl
+RUN sh packages.jl
 
 RUN echo 'es_MX.UTF-8 UTF-8' >> /etc/locale.gen
 RUN echo 'export es_MX.UTF-8 UTF-8' >> /.bashrc
