@@ -1,16 +1,19 @@
-#!/usr/bin/env bash
+#!/usr/bin/env julia
 
-while read -r package;do
-yes | julia -e "using Pkg; Pkg.add(\"$package\")"
-done<requirements.txt
+packages = [:OhMyREPL,:LightGraphs,
+        :RCall,:GraphPlot,:Colors,
+        :Compose,:Clustering,:PyCall,
+        :Plots,:PyPlot,:Cairo,
+        :Fontconfig,:DifferentialEquations,:DataFrames,
+        :DataArrays,:GLM,:Distributions,
+        :TimeSeries,:Plotly,:LaTeXStrings,
+        :Statistics,:StatPlots]
 
-while read -r package;do
-julia -e "using $package"
-done<requirements.txt
-# yes | rm /root/.julia/lib/v0.6/Compose.ji
+ installed = [key for key in keys(Pkg.installed())]
+ strpackages = @. string(packages)
+ uninstalled = setdiff(strpackages,installed)
 
-# while read -r package;do
-# yes | julia -e "] add $package"
-# julia -e "using $package"
-# done<requirements.txt
-# yes | rm /root/.julia/lib/v0.6/Compose.ji
+ map(Pkg.add,uninstalled)
+ for package ∈ packages
+     @eval using $package
+ end
