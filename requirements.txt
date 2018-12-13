@@ -9,3 +9,6 @@ Plots
 PyPlot
 Cairo
 Fontconfig
+StatsBase
+Shapefile
+Luxor
